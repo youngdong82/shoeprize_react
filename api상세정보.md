@@ -1,6 +1,6 @@
 #### static/product/id/413.json
 
-<img src="/Users/amy/Projects/shoeprize-project/readmeImage/detailInfo.png" style="zoom:50%;" />
+<img src="./readmeImage/detailInfo.png" style="zoom:50%;" />
 
 ```
 {
@@ -20,11 +20,11 @@
 }
 ```
 
-
+<br><br>
 
 #### static/releases/413.json
 
-<img src="/Users/amy/Projects/shoeprize-project/readmeImage/release.png" style="zoom:50%;" />
+<img src="./readmeImage/release.png" style="zoom:50%;" />
 
 ```
 {
@@ -47,11 +47,11 @@
 }
 ```
 
-
+<br><br>
 
 #### static/product_release/{uuid}
 
-<img src="/Users/amy/Projects/shoeprize-project/readmeImage/layer.png" alt=" " style="zoom:50%;" />
+<img src="./readmeImage/layer.png" alt=" " style="zoom:50%;" />
 
 
 
