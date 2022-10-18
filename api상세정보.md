@@ -1,6 +1,6 @@
 ### static/product/id/413.json
 
-<img src="./readmeImage/detailInfo.png" style="max-width:70%;" />
+<img src="./readmeImage/detailInfo.png" style="width:50%;" />
 
 ```
 {
@@ -24,7 +24,7 @@
 
 ### static/releases/413.json
 
-<img src="./readmeImage/release.png" style="max-width:70%;" />
+<img src="./readmeImage/release.png" style="width:50%;" />
 
 ```
 {
@@ -33,7 +33,7 @@
     	"id": 아이디,
       "uuid": uuid,
       "type": 0 = 선착순, 1 = 응모,
-      "isEvent": 이벤트 상품 
+      "isEvent": 이벤트 상품
       "method": 공지 방법,
       "releaseMarket": {
         "name": 발매처 이름,
@@ -49,11 +49,9 @@
 
 <br><br>
 
-### static/product_release/{uuid}
+### static/product_release/{uuid}.json
 
-<img src="./readmeImage/layer.png" alt=" " style="max-width:70%;" />
-
-
+<img src="./readmeImage/layer.png" alt=" " style="width:50%;" />
 
 ```
 {
