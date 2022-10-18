@@ -12,7 +12,7 @@
    API 상세정보 링크 - [api상세정보](./api상세정보.md)
 4. 플러그인을 활용해도 좋고 자신만의 코드를 추가해도 좋습니다.
 5. 디자인 공유는 Figma로 공유해 드립니다. Figma 로그인하고 사용하시면 수치 값 확인하실 수 있습니다.<br>
-   Figma 링크 - [shorturl.at/alsU2](shorturl.at/alsU2)
+   Figma 링크 - [shorturl.at/alsU2](https://shorturl.at/alsU2)
 
 <br>
 <br>
@@ -48,7 +48,8 @@
    <br><br>
    
 3. 상품정보 영역 
-   ![](./readmeImage/detailInfo2.png)
+   
+   <img src="./readmeImage/detailInfo2.png" alt=" " style="max-width:70%;" />
 
 ```
 요청사항 

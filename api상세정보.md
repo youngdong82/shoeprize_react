@@ -1,6 +1,6 @@
 #### static/product/id/413.json
 
-<img src="./readmeImage/detailInfo.png" style="zoom:50%;" />
+<img src="./readmeImage/detailInfo.png" style="max-width:70%;" />
 
 ```
 {
@@ -24,7 +24,7 @@
 
 #### static/releases/413.json
 
-<img src="./readmeImage/release.png" style="zoom:50%;" />
+<img src="./readmeImage/release.png" style="max-width:70%;" />
 
 ```
 {
@@ -51,7 +51,7 @@
 
 #### static/product_release/{uuid}
 
-<img src="./readmeImage/layer.png" alt=" " style="zoom:50%;" />
+<img src="./readmeImage/layer.png" alt=" " style="max-width:70%;" />
 
 
 
