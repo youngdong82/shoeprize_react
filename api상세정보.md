@@ -1,6 +1,6 @@
-#### static/product/id/413.json
+### static/product/id/413.json
 
-<img src="./readmeImage/detailInfo.png" style="max-width:70%;" />
+<img src="./readmeImage/detailInfo.png" style="width:50%;" />
 
 ```
 {
@@ -22,9 +22,9 @@
 
 <br><br>
 
-#### static/releases/413.json
+### static/releases/413.json
 
-<img src="./readmeImage/release.png" style="max-width:70%;" />
+<img src="./readmeImage/release.png" style="width:50%;" />
 
 ```
 {
@@ -49,11 +49,9 @@
 
 <br><br>
 
-#### static/product_release/{uuid}
+### static/product_release/{uuid}.json
 
-<img src="./readmeImage/layer.png" alt=" " style="max-width:70%;" />
-
-
+<img src="./readmeImage/layer.png" alt=" " style="width:50%;" />
 
 ```
 {
