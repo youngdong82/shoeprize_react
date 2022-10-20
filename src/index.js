@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
+        <GlobalStyle />
+        <App />
     </ThemeProvider>
 );

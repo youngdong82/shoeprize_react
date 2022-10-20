@@ -1,12 +1,11 @@
 import React from 'react';
 import style from 'styled-components'
+import logo from '../asset/shoeprize_logo.png'
 
 const Header = () => {
-  const viewportWidth = window.innerWidth;
-
   return(
-    <HeaderComp width={viewportWidth}>
-      <LogoImg src={null} alt='logo' />
+    <HeaderComp>
+      <LogoImg src={logo} alt='logo' />
     </HeaderComp>
   )
 }
@@ -16,13 +15,13 @@ export default Header;
 const HeaderComp = style.header`
   position: absolute;
   width: 100vw;
-  height: ${({width}) => width/1920 * 56}px;
+  height: ${Math.round(56/1920 * 100)}%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 ${Math.floor(40/1920*100)}%;
   border-bottom: 1px solid black;
 `
 const LogoImg = style.img`
-  width: ${({width}) => width/1920 * 116}px;
+  width: ${Math.ceil(122/1920 * 100)}%;
 `
