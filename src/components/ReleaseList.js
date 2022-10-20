@@ -40,8 +40,9 @@ const ReleaseList = () => {
 export default ReleaseList;
 
 const ReleaseListComp = style.section`
-  width: ${({width}) => width/1920 * 400}px;
-  min-width: 400px;
+  width: 94%;
+  max-width: 400px;
+  min-width: 360px;
   display: flex;
   flex-direction: column;
 `
