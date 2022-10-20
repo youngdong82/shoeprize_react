@@ -29,7 +29,7 @@ const DetailContainer = () => {
 export default DetailContainer;
 
 const DetailContainerComp = style.aside`
-  width: ${({width}) => width - (width/1920 * 1316)}px;
+  width: ${({width}) => (width/1920 * 700)-(width/1920 * 40)}px;
   display: flex;
   flex-direction: column;
   align-items: center;

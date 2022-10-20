@@ -24,7 +24,6 @@ const ThumbnailListComp = style.main`
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: ${({width}) => width/1920 * 96}px;
-  margin-left: ${({width}) => width/1920 * 40}px;
   background-color: beige;
 `
 const Img = style.img`

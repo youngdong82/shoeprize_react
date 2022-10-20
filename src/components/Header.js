@@ -14,6 +14,7 @@ const Header = () => {
 export default Header;
 
 const HeaderComp = style.header`
+  position: absolute;
   width: 100vw;
   height: ${({width}) => width/1920 * 56}px;
   display: flex;
