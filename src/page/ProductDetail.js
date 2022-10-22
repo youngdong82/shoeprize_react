@@ -14,13 +14,13 @@ const PruductDetail = () => {
     setData(json);
   }
   useEffect(() => {
-    getData()
+    getData();
   },[])
 
   return(
     <PruductDetailComp>
       <ThumbnailList imgList={data ? data.images : null} />
-      <DetailContainer />
+      <DetailContainer detailData = {data ? data : null} />
     </PruductDetailComp>
   )
 }
@@ -33,6 +33,3 @@ const PruductDetailComp = style.div`
   justify-content: space-between;
   padding-left: ${Math.floor(40/1920*100)}%;
 `
-
-// 1920px에서 40px을 차지하고 있다.
-// 백분율은?
