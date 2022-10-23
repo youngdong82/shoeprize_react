@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from 'styled-components';
 import ReuseBtn from './reuseable/ReuseBtn';
+import PortalModal from '../PortalModal';
 
 const ReleaseEach = ({data, index, isDone}) => {
+  const [modalToggle, setModalToggle] = useState(false);
+  const showModal = () => {
+    setModalToggle(true);
+  }
+  
   return(
     <>
       {index === 0 ? <></> : <Sep/>}
@@ -22,13 +28,14 @@ const ReleaseEach = ({data, index, isDone}) => {
           </TagContainer>
           <BtnBox>
             {isDone ? 
-              <ReuseBtn content={'종료'} />
+              <ReuseBtn content={'종료'} clickEvent={showModal} />
               :
-              <ReuseBtn content={data.type === 0 ? '선착순' : '응모'} />
+              <ReuseBtn content={data.type === 0 ? '선착순' : '응모'} clickEvent={showModal} />
             }
           </BtnBox>
         </ReleaseInfo>
       </ReleaseEachComp>
+      {modalToggle ? <PortalModal uuid={data.uuid}/>:<></>}
     </>
   )
 }
