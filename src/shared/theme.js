@@ -3,11 +3,13 @@ const calcRem = (size) => `${size / 16}rem`
 const colors = {
   black: "#000000",
   black_pale: '#333333',
+  black_trans: 'rgba(0, 0, 0, 0.4)',
   gray_pale: "#F4F4F4",
   gray: "#E0E0E0",
   gray_dark: "#959595",
   gray_deepdark: "#666666",
   yellow: "#FFCA00",
+  white: '#FFFFFF'
 };
 
 const fontSize = {
