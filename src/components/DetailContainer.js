@@ -1,5 +1,6 @@
 import React from 'react';
 import style from 'styled-components';
+import { withComma } from '../shared/withComma';
 import CopyIcon from '../shared/CopyIcon';
 import MoreContent from '../shared/MoreContent';
 import ReleaseList from './ReleaseList';
@@ -31,12 +32,12 @@ const DetailContainer = ({detailData}) => {
               <div>{detailData.code}<CopyIcon data={detailData.code} size={15} /> </div>
               <div>{detailData.price}</div>
               <div>{detailData.firstReleaseDate}</div>
-              <div>{detailData.applyCount}</div>
+              <div>{withComma(detailData.applyCount)}회</div>
             </DetailContent>
           </DetailData>
           <DetailDesc><MoreContent data={detailData.comment} /></DetailDesc>
           <DetailElse>
-            발매처 <span>{detailData.releaseSiteCount}</span> · 조회수 <span>{detailData.views}</span>
+            발매처 <span>{withComma(detailData.releaseSiteCount)}</span> · 조회수 <span>{withComma(detailData.views)}</span>
           </DetailElse>
         </DetailHead>
         <Sep />

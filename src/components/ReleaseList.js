@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from 'styled-components';
+import { withComma } from '../shared/withComma';
 import ReleaseEach from './ReleaseEach';
 import ReuseBtn from './reuseable/ReuseBtn';
 
@@ -45,7 +46,7 @@ const ReleaseList = () => {
       <ReleaseListHead>
         <ReleaseListTitle>
           발매 정보 
-          <ReleaseListElse>{releaseData.doneData.length + releaseData.liveData.length}</ReleaseListElse>
+          <ReleaseListElse>{withComma(releaseData.doneData.length + releaseData.liveData.length)}</ReleaseListElse>
         </ReleaseListTitle>
         <LiveOrDone>
           <LiveBtn isLive={liveToggle} onClick={liveToggleHandler}>진행중</LiveBtn>
