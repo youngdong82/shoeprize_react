@@ -3,9 +3,28 @@ import styled from 'styled-components';
 import CopyIcon from '../../shared/CopyIcon';
 import ReuseBtn from '../reuseable/ReuseBtn';
 
+import website from '../../asset/icons/website.png';
+import facebook from '../../asset/icons/Facebook.png';
+import instagram from '../../asset/icons/Instagram.png';
+import youtube from '../../asset/icons/Youtube.png';
+import naverBlog from '../../asset/icons/NaverBlog.png';
+
 
 
 const Modal = ({ data, children }) => {
+  const iconRouter = (data) => {
+    if(data === 'homepage'){
+      return website
+    } else if(data === 'facebook') {
+      return facebook
+    } else if(data === 'instagram') {
+      return instagram
+    } else if(data === 'youtube') {
+      return youtube
+    } else if(data === 'naver') {
+      return naverBlog
+    }
+  }
   return(
       <ModalComp>
         {children}
@@ -53,7 +72,7 @@ const Modal = ({ data, children }) => {
             <Title>공식 채널</Title>
             <ChannelContainer>
               {data.releaseMarket.channels.map((each) => 
-                <ChannelEach key={each.type} alt={each.typeName}/>
+                <ChannelEach key={each.type} src={iconRouter(each.type)} alt={each.typeName}/>
               )}
             </ChannelContainer>
           </ModalContentBox>
@@ -67,7 +86,7 @@ const Modal = ({ data, children }) => {
           }
         </ModalContent>
         <BtnBox>
-          <ReuseBtn content={'응모 바로가기'} />
+          <ReuseBtn content={'응모 바로가기'} type={'yellow'} />
         </BtnBox>
       </ModalComp>
   )
@@ -81,7 +100,6 @@ const ModalComp = styled.div`
   width: 400px;
   height: 600px;
   padding: 0px 20px;
-  padding-top: 13px;
   padding-bottom: 20px;
   background-color: ${({theme}) => theme.colors.white};
 `

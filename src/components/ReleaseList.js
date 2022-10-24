@@ -65,7 +65,7 @@ const ReleaseList = () => {
             <ReleaseEach key={each.id} data={each} index={idx} isDone={false} />)}
           {releaseLimit < releaseData.liveData.length ?
             <BtnBox>
-              <ReuseBtn content={'더 보기'} clickEvent={showMore} />
+              <ReuseBtn content={'더 보기'} clickEvent={showMore} type={'black'} />
             </BtnBox>
             :<></>}
           </>
@@ -75,7 +75,7 @@ const ReleaseList = () => {
               <ReleaseEach key={each.id} data={each} index={idx} isDone={true} />)}
             {releaseLimit < releaseData.doneData.length ?
               <BtnBox>
-                <ReuseBtn content={'더 보기'} clickEvent={showMore} />
+                <ReuseBtn content={'더 보기'} clickEvent={showMore} type={'black'}/>
               </BtnBox>
               :<></>}
           </>

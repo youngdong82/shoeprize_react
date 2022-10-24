@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import Modal from './components/modal/Modal';
+import { GrClose } from 'react-icons/gr'
 
 //포탈을 위한 데이터 처리 및 포탈 관련 로직
-const PortalModal = ({uuid}) => {
+const PortalModal = ({uuid, clickEvent}) => {
   const [modalData, setModalData] = useState(null);
   const getData = async() => {
     const res = await fetch(`/static/product_release/${uuid}.json`, {
@@ -17,13 +18,14 @@ const PortalModal = ({uuid}) => {
     getData();
   },[])
 
+
   const modalRoot = document.getElementById('modal');
   return(
     ReactDOM.createPortal(
       <ModalTempComp>
         {modalData !== null ?
           <Modal data={modalData}>
-            {<RemoveBtn>x</RemoveBtn>}
+            {<RemoveBtn onClick={clickEvent}><GrClose size={16} /></RemoveBtn>}
           </Modal>
           :<></>
         }
@@ -47,11 +49,12 @@ const ModalTempComp = styled.div`
 `
 const RemoveBtn = styled.button`
   position: absolute;
-  top: 14.5px;
-  right: 20.5px;
-  width: 15px;
-  height: 15px;
+  top: 12px;
+  right: 16px;
+  width: 16px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 `

@@ -6,7 +6,7 @@ import PortalModal from '../PortalModal';
 const ReleaseEach = ({data, index, isDone}) => {
   const [modalToggle, setModalToggle] = useState(false);
   const showModal = () => {
-    setModalToggle(true);
+    setModalToggle(!modalToggle);
   }
   
   return(
@@ -28,14 +28,14 @@ const ReleaseEach = ({data, index, isDone}) => {
           </TagContainer>
           <BtnBox>
             {isDone ? 
-              <ReuseBtn content={'종료'} clickEvent={showModal} />
+              <ReuseBtn content={'종료'} clickEvent={showModal} type={'gray_done'} />
               :
-              <ReuseBtn content={data.type === 0 ? '선착순' : '응모'} clickEvent={showModal} />
+              <ReuseBtn content={data.type === 0 ? '선착순' : '응모'} clickEvent={showModal} type={'gray'} />
             }
           </BtnBox>
         </ReleaseInfo>
       </ReleaseEachComp>
-      {modalToggle ? <PortalModal uuid={data.uuid}/>:<></>}
+      {modalToggle ? <PortalModal uuid={data.uuid} clickEvent={showModal} />:<></>}
     </>
   )
 }
