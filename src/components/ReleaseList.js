@@ -4,8 +4,6 @@ import { withComma } from '../shared/withComma';
 import ReleaseEach from './ReleaseEach';
 import ReuseBtn from './reuseable/ReuseBtn';
 
-// 3. 5개씩 잘라야해
-
 const ReleaseList = () => {
   const [releaseData, setReleaseData] = useState({liveData:[], doneData:[]});
   //로컬 json 파일 가져오기
@@ -38,8 +36,14 @@ const ReleaseList = () => {
   const [liveToggle, setLiveToggle] = useState(false);
   const liveToggleHandler = () => {
     setLiveToggle(!liveToggle);
+    setReleaseLimit(5);
   }
 
+  //5개씩 더 보여주기
+  const [releaseLimit, setReleaseLimit] = useState(5);
+  const showMore = () => {
+    setReleaseLimit(releaseLimit+5);
+  }
 
   return(
     <ReleaseListComp>
@@ -56,15 +60,26 @@ const ReleaseList = () => {
       </ReleaseListHead>
       <ReleaseContainer>
         {!liveToggle ? 
-          releaseData.liveData.map((each, idx) => 
-            <ReleaseEach key={each.id} data={each} index={idx} isDone={false} />)
+          <>
+          {releaseData.liveData.slice(0,releaseLimit).map((each, idx) => 
+            <ReleaseEach key={each.id} data={each} index={idx} isDone={false} />)}
+          {releaseLimit < releaseData.liveData.length ?
+            <BtnBox>
+              <ReuseBtn content={'더 보기'} clickEvent={showMore} />
+            </BtnBox>
+            :<></>}
+          </>
           :
-          releaseData.doneData.map((each,idx) =>
-            <ReleaseEach key={each.id} data={each} index={idx} isDone={true} />)
+          <>
+            {releaseData.doneData.slice(0,releaseLimit).map((each,idx) =>
+              <ReleaseEach key={each.id} data={each} index={idx} isDone={true} />)}
+            {releaseLimit < releaseData.doneData.length ?
+              <BtnBox>
+                <ReuseBtn content={'더 보기'} clickEvent={showMore} />
+              </BtnBox>
+              :<></>}
+          </>
         }
-        <BtnBox>
-          <ReuseBtn content={'더 보기'} />
-        </BtnBox>
       </ReleaseContainer>
     </ReleaseListComp>
   )
