@@ -1,5 +1,6 @@
 import React from 'react';
 import style from 'styled-components';
+import CopyIcon from '../shared/CopyIcon';
 import ReleaseList from './ReleaseList';
 
 const DetailContainer = ({detailData}) => {
@@ -26,7 +27,7 @@ const DetailContainer = ({detailData}) => {
               <div>총 응모 횟수</div>
             </DetailName>
             <DetailContent>
-              <div>{detailData.code}</div>
+              <div>{detailData.code}<CopyIcon data={detailData.code} size={15} /> </div>
               <div>{detailData.price}</div>
               <div>{detailData.firstReleaseDate}</div>
               <div>{detailData.applyCount}</div>
@@ -65,7 +66,7 @@ const DetailTitle = style.article`
   width: 100%;
   height: 62px;
   display: flex;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   border-left: 1px solid ${({theme}) => theme.colors.gray_dark};
   border-bottom: 1px solid ${({theme}) => theme.colors.gray_dark};
   border-right: 1px solid ${({theme}) => theme.colors.gray_dark};
@@ -126,6 +127,9 @@ const DetailContent = style.div`
   font-size: ${({theme}) => theme.fontSize.font_13};
   font-weight: ${({theme}) => theme.fontWeight.regular};
   line-height: 18px;
+  & div{
+    display: flex;
+  }
 `
 const DetailDesc = style.article`
   width: 100%;

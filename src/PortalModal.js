@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import Modal from './Modal';
+import Modal from './components/modal/Modal';
 
 //포탈을 위한 데이터 처리 및 포탈 관련 로직
 const PortalModal = ({uuid}) => {

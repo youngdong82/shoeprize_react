@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ReuseBtn from './components/reuseable/ReuseBtn';
+import CopyIcon from '../../shared/CopyIcon';
+import ReuseBtn from '../reuseable/ReuseBtn';
 
 
 
@@ -25,7 +26,7 @@ const Modal = ({ data, children }) => {
           <Sep />
           <ModalContentBox>
             <Title>제품 코드</Title>
-            <ContentBold>{data.product.code}</ContentBold>
+            <ContentBold>{data.product.code}<CopyIcon data={data.product.code} size={15} /></ContentBold>
           </ModalContentBox>
           <Sep />
           <ModalContentBox>
@@ -159,6 +160,8 @@ const Title = styled.div`
   line-height: 18px;
 `
 const ContentBold = styled.div`
+  display: flex;
+  align-items: center;
   font-size: ${({theme}) => theme.fontSize.font_13};
   font-weight: ${({theme}) => theme.fontWeight.medium};
   line-height: 18px;
