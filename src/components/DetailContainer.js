@@ -1,6 +1,7 @@
 import React from 'react';
 import style from 'styled-components';
 import CopyIcon from '../shared/CopyIcon';
+import MoreContent from '../shared/MoreContent';
 import ReleaseList from './ReleaseList';
 
 const DetailContainer = ({detailData}) => {
@@ -33,7 +34,7 @@ const DetailContainer = ({detailData}) => {
               <div>{detailData.applyCount}</div>
             </DetailContent>
           </DetailData>
-          <DetailDesc>{detailData.comment}</DetailDesc>
+          <DetailDesc><MoreContent data={detailData.comment} /></DetailDesc>
           <DetailElse>
             발매처 <span>{detailData.releaseSiteCount}</span> · 조회수 <span>{detailData.views}</span>
           </DetailElse>
@@ -133,7 +134,6 @@ const DetailContent = style.div`
 `
 const DetailDesc = style.article`
   width: 100%;
-  // height: 62px;
   padding: 0px 11px;
   padding-bottom: 9px;
   margin-bottom: 16px;
