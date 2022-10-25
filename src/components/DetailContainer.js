@@ -55,7 +55,8 @@ const DetailContainerComp = style.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: ${Math.floor(216/1920*100)}%;
+  margin-top: ${Math.floor(120/1080 * 100)}%;
+  margin-bottom: ${Math.floor(80/1080 * 100)}%;
 `
 const DetailHead = style.section`
   width: 94%;

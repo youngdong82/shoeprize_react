@@ -13,15 +13,15 @@ const Header = () => {
 export default Header;
 
 const HeaderComp = style.header`
-  position: absolute;
   width: 100vw;
-  height: ${Math.round(56/1920 * 100)}%;
+  height: ${Math.round(56/1080 * 100)}%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 ${Math.floor(40/1920*100)}%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${({theme}) => theme.colors.gray};
 `
 const LogoImg = style.img`
   width: ${Math.ceil(122/1920 * 100)}%;
+  min-width: 80px;
 `

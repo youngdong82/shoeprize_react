@@ -10,13 +10,18 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Apple SD Gothic Neo';
     }
     body {
+        width: 100vw;
+        height: 100vh;
         margin: 0px;
-    }
-    body::-webkit-scrollbar {
-        display: none;
     }
     .App {
         position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    .App::-webkit-scrollbar {
+        display: none;
     }
     h1{
         margin: 0px;
