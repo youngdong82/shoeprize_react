@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import CopyIcon from '../../shared/CopyIcon';
 import ReuseBtn from '../reuseable/ReuseBtn';
 
-import website from '../../asset/icons/website.png';
-import facebook from '../../asset/icons/Facebook.png';
-import instagram from '../../asset/icons/Instagram.png';
-import youtube from '../../asset/icons/Youtube.png';
-import naverBlog from '../../asset/icons/NaverBlog.png';
-
+import website from '../../asset/icons/website.svg';
+import facebook from '../../asset/icons/facebook.svg';
+import instagram from '../../asset/icons/instagram.svg';
+import youtube from '../../asset/icons/youtube.svg';
+import naverBlog from '../../asset/icons/naverBlog.svg';
+import kakao from '../../asset/icons/kakao.svg';
+import twitter from '../../asset/icons/twitter.svg';
 
 
 const Modal = ({ data, children }) => {
@@ -23,6 +24,10 @@ const Modal = ({ data, children }) => {
       return youtube
     } else if(data === 'naver') {
       return naverBlog
+    } else if(data === 'kakaotalk') {
+      return kakao
+    } else if(data === 'twitter') {
+      return twitter
     }
   }
   return(
@@ -191,10 +196,11 @@ const Content = styled.div`
 `
 const ChannelContainer = styled.div`
   display: flex;
+  align-items: center;
 `
 const ChannelEach = styled.img`
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   margin-left: 17px;
 `
 const ContentTexarea = styled.textarea`

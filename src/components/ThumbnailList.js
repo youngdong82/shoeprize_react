@@ -5,8 +5,8 @@ const ThumbnailList = ({imgList}) => {
   return(
     <ThumbnailListComp>
       {imgList ? imgList.map((each,idx) => 
-        <ImgBox>
-            <Img key={idx} src={each} alt="detail image" />
+        <ImgBox key={idx}>
+            <Img src={each} alt="detail image" />
         </ImgBox>
       ):<></>}
     </ThumbnailListComp>
