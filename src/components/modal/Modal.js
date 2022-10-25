@@ -13,6 +13,21 @@ import twitter from '../../asset/icons/twitter.svg';
 
 
 const Modal = ({ data, children }) => {
+  const nowStamp = Date.now();
+  const moveToUrl = () => {
+    window.open(data.url);
+  }
+  const btnTypeRouter = () => {
+    if(data.closedTimestamp - nowStamp){
+      if(data.type === 0){
+        return <ReuseBtn content={'선착순 바로가기'} type={'yellow'} />
+      }else{
+        return <ReuseBtn content={'응모 바로가기'} type={'yellow'} />
+      }
+    }else{
+      return <ReuseBtn content={'종료'} type={'gray_done'} />
+    }
+  }
   const iconRouter = (data) => {
     if(data === 'homepage'){
       return website
@@ -30,6 +45,15 @@ const Modal = ({ data, children }) => {
       return twitter
     }
   }
+  const stringConverter = (data) => {
+    const afterConvert = data.split("\r\n").map((text,idx) =>(
+      <div key={idx}>
+        {text}
+      </div>
+    ));
+    return afterConvert
+  }
+
   return(
       <ModalComp>
         {children}
@@ -77,7 +101,7 @@ const Modal = ({ data, children }) => {
             <Title>공식 채널</Title>
             <ChannelContainer>
               {data.releaseMarket.channels.map((each) => 
-                <ChannelEach key={each.type} src={iconRouter(each.type)} alt={each.typeName}/>
+                <ChannelEach key={each.type} src={iconRouter(each.type)} alt={each.typeName} onClick={() => window.open(each.link)} />
               )}
             </ChannelContainer>
           </ModalContentBox>
@@ -85,13 +109,15 @@ const Modal = ({ data, children }) => {
           { data.mission !== undefined ?
             <ModalContentBoxColumn>
               <Title>유의 사항</Title>
-              <ContentTexarea value={data.mission} />
+              <MissionContainer>
+                {stringConverter(data.mission)}
+              </MissionContainer>
             </ModalContentBoxColumn>
-            :<></>
+            :<Blank></Blank>
           }
         </ModalContent>
-        <BtnBox>
-          <ReuseBtn content={'응모 바로가기'} type={'yellow'} />
+        <BtnBox onClick={moveToUrl}>
+          {btnTypeRouter()}
         </BtnBox>
       </ModalComp>
   )
@@ -181,6 +207,7 @@ const Title = styled.div`
   font-size: ${({theme}) => theme.fontSize.font_13};
   font-weight: ${({theme}) => theme.fontWeight.regular};
   line-height: 18px;
+  margin-bottom: 4px;
 `
 const ContentBold = styled.div`
   display: flex;
@@ -202,14 +229,22 @@ const ChannelEach = styled.img`
   width: 24px;
   height: 24px;
   margin-left: 17px;
+  cursor: pointer;
 `
-const ContentTexarea = styled.textarea`
-  height: 100%;
-  margin: 12px 0px;
-  border: none;
+const MissionContainer = styled.div`
+  height: 110px;
+  margin-bottom: 12px;
+  font-size: ${({theme}) => theme.fontSize.font_13};
+  font-weight: ${({theme}) => theme.fontWeight.regular};
+  line-height: 18px;
+  overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;
-}
+  }
+`
+const Blank = styled.div`
+  height: 132px;
+  margin-bottom: 12px;
 `
 const Sep = styled.div`
   width: 100%;

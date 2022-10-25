@@ -29,6 +29,9 @@ const GlobalStyle = createGlobalStyle`
     h2{
         margin: 0px;
     }
+    p{
+        margin: 0px;
+    }
     button {
         outline: none;
         border: none;

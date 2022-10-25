@@ -36,4 +36,5 @@ const MoreComp = styled.span`
   box-shadow: -6px 3px 8px 4px ${({theme}) => theme.colors.white};
   line-height: 18px;
   cursor: pointer;
+  word-break: keep-all;
 `
