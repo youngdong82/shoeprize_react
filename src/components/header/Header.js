@@ -1,6 +1,6 @@
 import React from 'react';
 import style from 'styled-components'
-import logo from '../asset/shoeprize_logo.png'
+import logo from '../../asset/shoeprize_logo.png'
 
 const Header = () => {
   return(

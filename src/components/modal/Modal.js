@@ -1,58 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import CopyIcon from '../../shared/CopyIcon';
-import ReuseBtn from '../reuseable/ReuseBtn';
-
-import website from '../../asset/icons/website.svg';
-import facebook from '../../asset/icons/facebook.svg';
-import instagram from '../../asset/icons/instagram.svg';
-import youtube from '../../asset/icons/youtube.svg';
-import naverBlog from '../../asset/icons/naverBlog.svg';
-import kakao from '../../asset/icons/kakao.svg';
-import twitter from '../../asset/icons/twitter.svg';
-
+import ModalContentTemp from './ModalContetBox';
+import ModalBtn from './ModalBtn';
+import { iconRouter } from '../../shared/iconRouter';
+import { stringConverter } from '../../shared/stringConverter';
 
 const Modal = ({ data, children }) => {
-  const nowStamp = Date.now();
-  const moveToUrl = () => {
-    window.open(data.url);
-  }
-  const btnTypeRouter = () => {
-    if(data.closedTimestamp - nowStamp){
-      if(data.type === 0){
-        return <ReuseBtn content={'선착순 바로가기'} type={'yellow'} />
-      }else{
-        return <ReuseBtn content={'응모 바로가기'} type={'yellow'} />
-      }
-    }else{
-      return <ReuseBtn content={'종료'} type={'gray_done'} />
-    }
-  }
-  const iconRouter = (data) => {
-    if(data === 'homepage'){
-      return website
-    } else if(data === 'facebook') {
-      return facebook
-    } else if(data === 'instagram') {
-      return instagram
-    } else if(data === 'youtube') {
-      return youtube
-    } else if(data === 'naver') {
-      return naverBlog
-    } else if(data === 'kakaotalk') {
-      return kakao
-    } else if(data === 'twitter') {
-      return twitter
-    }
-  }
-  const stringConverter = (data) => {
-    const afterConvert = data.split("\r\n").map((text,idx) =>(
-      <div key={idx}>
-        {text}
-      </div>
-    ));
-    return afterConvert
-  }
 
   return(
       <ModalComp>
@@ -72,30 +25,15 @@ const Modal = ({ data, children }) => {
             </ProductDetail>
           </ModalContentBoxFree>
           <Sep />
-          <ModalContentBox>
-            <Title>제품 코드</Title>
-            <ContentBold>{data.product.code}<CopyIcon data={data.product.code} size={15} /></ContentBold>
-          </ModalContentBox>
+          <ModalContentTemp titleData={"제품 코드"} data={data.product.code} isBold={true} needCopy={true} />
           <Sep />
-          <ModalContentBox>
-            <Title>가격</Title>
-            <ContentBold>{data.price}</ContentBold>
-          </ModalContentBox>
+          <ModalContentTemp titleData={"가격"} data={data.price} isBold={true} />
           <Sep />
-          <ModalContentBox>
-            <Title>공지 방법</Title>
-            <Content>{data.method}</Content>
-          </ModalContentBox>
+          <ModalContentTemp titleData={"공지 방법"} data={data.method} />
           <Sep />
-          <ModalContentBox>
-            <Title>결제 방법</Title>
-            <Content>{data.payMethod}</Content>
-          </ModalContentBox>
+          <ModalContentTemp titleData={"결제 방법"} data={data.payMethod} />
           <Sep />
-          <ModalContentBox>
-            <Title>수령 방법</Title>
-            <Content>{data.shippingMethod}</Content>
-          </ModalContentBox>
+          <ModalContentTemp titleData={"수령 방법"} data={data.shippingMethod} />
           <Sep />
           <ModalContentBox>
             <Title>공식 채널</Title>
@@ -116,9 +54,7 @@ const Modal = ({ data, children }) => {
             :<Blank></Blank>
           }
         </ModalContent>
-        <BtnBox onClick={moveToUrl}>
-          {btnTypeRouter()}
-        </BtnBox>
+        <ModalBtn url={data.url} type={data.type} closedTimestamp={data.closedTimestamp}  />
       </ModalComp>
   )
 }
@@ -209,18 +145,6 @@ const Title = styled.div`
   line-height: 18px;
   margin-bottom: 4px;
 `
-const ContentBold = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: ${({theme}) => theme.fontSize.font_13};
-  font-weight: ${({theme}) => theme.fontWeight.medium};
-  line-height: 18px;
-`
-const Content = styled.div`
-  font-size: ${({theme}) => theme.fontSize.font_13};
-  font-weight: ${({theme}) => theme.fontWeight.regular};
-  line-height: 18px;
-`
 const ChannelContainer = styled.div`
   display: flex;
   align-items: center;
@@ -251,8 +175,4 @@ const Sep = styled.div`
   height: 1px;
   margin: 12px 0px;;
   background-color: ${({theme}) => theme.colors.gray};
-`
-const BtnBox = styled.div`
-  width: 100%;
-  height: 40px;
 `

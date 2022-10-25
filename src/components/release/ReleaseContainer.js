@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import style from 'styled-components';
-import { withComma } from '../shared/withComma';
+import { withComma } from '../../shared/withComma';
 import ReleaseEach from './ReleaseEach';
-import ReuseBtn from './reuseable/ReuseBtn';
+import ReuseBtn from '../reuseable/ReuseBtn';
+import { getData } from '../../shared/getData';
 
 const ReleaseList = () => {
   const [releaseData, setReleaseData] = useState({liveData:[], doneData:[]});
-  //로컬 json 파일 가져오기
-  const getData = async() => {
-    const res = await fetch('/static/releases/413.json', {
-      method: 'GET',
-    })
-    const json = await res.json();
-    const unsortedData = json.results;
+  const sortAndSetData = (data) => {
+    const unsortedData = data.results;
     const nowStamp = Date.now();
     const liveData = [];
     const doneData = [];
@@ -29,7 +25,7 @@ const ReleaseList = () => {
     setReleaseData(newReleaseData);
   }
   useEffect(() => {
-    getData();
+    getData('/static/releases/413.json',sortAndSetData);
   },[])
 
   //진행 중(false) | 종료 토글

@@ -3,21 +3,14 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import Modal from './components/modal/Modal';
 import { GrClose } from 'react-icons/gr'
+import { getData } from './shared/getData';
 
 //포탈을 위한 데이터 처리 및 포탈 관련 로직
 const PortalModal = ({uuid, clickEvent}) => {
   const [modalData, setModalData] = useState(null);
-  const getData = async() => {
-    const res = await fetch(`/static/product_release/${uuid}.json`, {
-      method: 'GET',
-    })
-    const json = await res.json();
-    setModalData(json);
-  }
   useEffect(() => {
-    getData();
-  },[])
-
+    getData(`/static/product_release/${uuid}.json`, setModalData);
+  },[uuid])
 
   const modalRoot = document.getElementById('modal');
   return(
@@ -29,8 +22,7 @@ const PortalModal = ({uuid, clickEvent}) => {
           </Modal>
           :<></>
         }
-      </ModalTempComp>,
-    modalRoot
+      </ModalTempComp>, modalRoot
     )
   )
 }

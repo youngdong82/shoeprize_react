@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from 'styled-components';
-import ReuseBtn from './reuseable/ReuseBtn';
-import PortalModal from '../PortalModal';
+import ReuseBtn from '../reuseable/ReuseBtn';
+import PortalModal from '../../PortalModal';
 
 const ReleaseEach = ({data, index, isDone}) => {
   const [modalToggle, setModalToggle] = useState(false);

@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import style from 'styled-components';
 import DetailContainer from '../components/DetailContainer';
+import DetailHead from '../components/DetailHead';
 import ThumbnailList from '../components/ThumbnailList';
+import { getData } from '../shared/getData';
 
 const PruductDetail = () => {
   const [data, setData] = useState(null);
-
-  const getData = async() => {
-    const res = await fetch('/static/product/id/413.json', {
-      method: 'GET',
-    })
-    const json = await res.json();
-    setData(json);
-  }
   useEffect(() => {
-    getData();
+    getData('/static/product/id/413.json', setData);
   },[])
 
   return(
-    <PruductDetailComp>
-      <ThumbnailList imgList={data ? data.images : null} />
-      <DetailContainer detailData = {data ? data : null} />
-    </PruductDetailComp>
+    <>
+      {data !== null ? 
+      <PruductDetailComp>
+        <ThumbnailList imgList={data.images} />
+        <DetailContainer>
+          <DetailHead detailData={data} />
+        </DetailContainer>
+      </PruductDetailComp>
+      :<></>
+      }
+    </>
   )
 }
 
