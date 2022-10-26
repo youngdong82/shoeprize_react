@@ -23,14 +23,25 @@ const ThumbnailListComp = styled.main`
   flex-wrap: wrap;
   margin-top: ${Math.floor(40/1080 * 100)}%;
   margin-bottom: ${Math.floor(40/1080 * 100)}%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 100vw;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 0px;
+    overflow-x: scroll;
+  }
 `
 const ImgBox = styled.div`
-width: ${Math.floor(600/1220 * 100)}%;
-max-width: 600px;
-max-height: 600px;
-margin-bottom: 1%;
+  width: ${Math.floor(600/1220 * 100)}%;
+  max-width: 600px;
+  max-height: 600px;
+  margin-bottom: 1%;
+  @media screen and (max-width: 768px) {
+    width: 345px;
+  }
 `
 const Img = styled.img`
-max-width: 100%;
-height: auto;
+  max-width: 100%;
+  height: auto;
 `

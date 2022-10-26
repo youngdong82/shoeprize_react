@@ -31,4 +31,6 @@ export default ModalBtn;
 const BtnBox = styled.div`
   width: 100%;
   height: 40px;
+  min-height: 40px;
+  margin-bottom: 20px;
 `

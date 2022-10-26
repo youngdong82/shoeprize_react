@@ -21,6 +21,11 @@ const DetailContainerComp = style.aside`
   align-items: center;
   margin-top: ${Math.floor(120/1080 * 100)}%;
   margin-bottom: ${Math.floor(80/1080 * 100)}%;
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    margin-top: 0px;
+    margin-bottom: 28px;
+  }
 `
 const Sep = style.div`
   width: 94%;
@@ -29,4 +34,7 @@ const Sep = style.div`
   height: 1px;
   background-color: ${({theme}) => theme.colors.gray};
   margin-bottom: 28px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `

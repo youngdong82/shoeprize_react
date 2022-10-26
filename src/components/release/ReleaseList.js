@@ -89,6 +89,10 @@ const ReleaseListComp = style.section`
   min-width: 360px;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 0px 20px;
+  }
 `
 const ReleaseListHead = style.article`
   width: 100%;

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import style from 'styled-components';
+import ImgContainer from '../components/imgContainer/ImgContainer';
 import DetailContainer from '../components/DetailContainer';
 import DetailHead from '../components/DetailHead';
-import ThumbnailList from '../components/ThumbnailList';
 import { getData } from '../shared/getData';
 
 const PruductDetail = () => {
@@ -15,7 +15,7 @@ const PruductDetail = () => {
     <>
       {data !== null ? 
       <PruductDetailComp>
-        <ThumbnailList imgList={data.images} />
+        <ImgContainer data={data.images} />
         <DetailContainer>
           <DetailHead detailData={data} />
         </DetailContainer>
@@ -33,4 +33,9 @@ const PruductDetailComp = style.div`
   display: flex;
   justify-content: space-between;
   padding-left: ${Math.floor(40/1920*100)}%;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+  }
 `

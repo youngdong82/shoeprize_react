@@ -47,6 +47,12 @@ const DetailHeadComp = style.section`
   min-width: 360px;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 0px 20px;
+    max-width: 400px;
+    min-width: 320px;
+  }
 `
 const DetailTitle = style.article`
   width: 100%;
@@ -83,6 +89,9 @@ const BrandImgBox = style.div`
   justify-content: center;
   align-items: center;
   border-left: 1px solid ${({theme}) => theme.colors.gray_dark};
+  @media screen and (max-width: 768px) {
+    padding: 0px 6px;
+  }
 `
 const BrandImg = style.img`
   width: 48px;

@@ -10,50 +10,52 @@ const Modal = ({ data, children }) => {
   return(
       <ModalComp>
         {children}
-        <ModalHeader>
-          <ModalHeaderCont>
-            <BrandLogo src={data.releaseMarket.icon} alt='brand Logo' />
-            <BrandName>{data.releaseMarket.name}</BrandName>
-          </ModalHeaderCont>
-        </ModalHeader>
-        <ModalContent>
-          <ModalContentBoxFree>
-            <ProductImg src={data.product.thumb} alt='product thumbnail'/>
-            <ProductDetail>
-              <ProductBrand>{data.product.brandName}</ProductBrand>
-              <ProductName>{data.product.name}</ProductName>
-            </ProductDetail>
-          </ModalContentBoxFree>
-          <Sep />
-          <ModalContentTemp titleData={"제품 코드"} data={data.product.code} isBold={true} needCopy={true} />
-          <Sep />
-          <ModalContentTemp titleData={"가격"} data={data.price} isBold={true} />
-          <Sep />
-          <ModalContentTemp titleData={"공지 방법"} data={data.method} />
-          <Sep />
-          <ModalContentTemp titleData={"결제 방법"} data={data.payMethod} />
-          <Sep />
-          <ModalContentTemp titleData={"수령 방법"} data={data.shippingMethod} />
-          <Sep />
-          <ModalContentBox>
-            <Title>공식 채널</Title>
-            <ChannelContainer>
-              {data.releaseMarket.channels.map((each) => 
-                <ChannelEach key={each.type} src={iconRouter(each.type)} alt={each.typeName} onClick={() => window.open(each.link)} />
-              )}
-            </ChannelContainer>
-          </ModalContentBox>
-          <Sep />
-          { data.mission !== undefined ?
-            <ModalContentBoxColumn>
-              <Title>유의 사항</Title>
-              <MissionContainer>
-                {stringConverter(data.mission)}
-              </MissionContainer>
-            </ModalContentBoxColumn>
-            :<Blank></Blank>
-          }
-        </ModalContent>
+        <div>
+          <ModalHeader>
+            <ModalHeaderCont>
+              <BrandLogo src={data.releaseMarket.icon} alt='brand Logo' />
+              <BrandName>{data.releaseMarket.name}</BrandName>
+            </ModalHeaderCont>
+          </ModalHeader>
+          <ModalContent>
+            <ModalContentBoxFree>
+              <ProductImg src={data.product.thumb} alt='product thumbnail'/>
+              <ProductDetail>
+                <ProductBrand>{data.product.brandName}</ProductBrand>
+                <ProductName>{data.product.name}</ProductName>
+              </ProductDetail>
+            </ModalContentBoxFree>
+            <Sep />
+            <ModalContentTemp titleData={"제품 코드"} data={data.product.code} isBold={true} needCopy={true} />
+            <Sep />
+            <ModalContentTemp titleData={"가격"} data={data.price} isBold={true} />
+            <Sep />
+            <ModalContentTemp titleData={"공지 방법"} data={data.method} />
+            <Sep />
+            <ModalContentTemp titleData={"결제 방법"} data={data.payMethod} />
+            <Sep />
+            <ModalContentTemp titleData={"수령 방법"} data={data.shippingMethod} />
+            <Sep />
+            <ModalContentBox>
+              <Title>공식 채널</Title>
+              <ChannelContainer>
+                {data.releaseMarket.channels.map((each) => 
+                  <ChannelEach key={each.type} src={iconRouter(each.type)} alt={each.typeName} onClick={() => window.open(each.link)} />
+                )}
+              </ChannelContainer>
+            </ModalContentBox>
+            <Sep />
+            { data.mission !== undefined ?
+              <ModalContentBoxColumn>
+                <Title>유의 사항</Title>
+                <MissionContainer height={window.innerHeight}>
+                  {stringConverter(data.mission)}
+                </MissionContainer>
+              </ModalContentBoxColumn>
+              :<Blank></Blank>
+            }
+          </ModalContent>
+        </div>
         <ModalBtn url={data.url} type={data.type} closedTimestamp={data.closedTimestamp}  />
       </ModalComp>
   )
@@ -67,8 +69,14 @@ const ModalComp = styled.div`
   width: 400px;
   height: 600px;
   padding: 0px 20px;
-  padding-bottom: 20px;
   background-color: ${({theme}) => theme.colors.white};
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `
 const ModalHeader = styled.div`
   width: 100%;
@@ -164,6 +172,9 @@ const MissionContainer = styled.div`
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;
+  }
+  @media screen and (max-width: 768px) {
+    height: ${({height}) => height-(182 + 301)}px;
   }
 `
 const Blank = styled.div`

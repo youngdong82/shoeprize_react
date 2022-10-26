@@ -19,9 +19,9 @@ const GlobalStyle = createGlobalStyle`
         width: 100vw;
         height: 100vh;
         overflow-y: scroll;
-    }
-    .App::-webkit-scrollbar {
-        display: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
     h1{
         margin: 0px;
