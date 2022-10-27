@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import ModalContentTemp from './ModalContetBox';
-import ModalBtn from './ModalBtn';
 import { iconRouter } from '../../shared/iconRouter';
 import { stringConverter } from '../../shared/stringConverter';
+import ModalContentTemp from './ModalContetBox';
+import ModalBtn from './ModalBtn';
 
-const Modal = ({ data, children }) => {
-
+const Modal = ({ data }) => {
   return(
-      <ModalComp>
-        {children}
+    <>
         <div>
           <ModalHeader>
             <ModalHeaderCont>
@@ -57,27 +55,13 @@ const Modal = ({ data, children }) => {
           </ModalContent>
         </div>
         <ModalBtn url={data.url} type={data.type} closedTimestamp={data.closedTimestamp}  />
-      </ModalComp>
+      </>
   )
 }
 
 
 export default Modal;
 
-const ModalComp = styled.div`
-  position: relative;
-  width: 400px;
-  height: 600px;
-  padding: 0px 20px;
-  background-color: ${({theme}) => theme.colors.white};
-  @media screen and (max-width: 768px) {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-`
 const ModalHeader = styled.div`
   width: 100%;
   height: 44px;

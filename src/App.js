@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Header from './components/header/Header';
-import PruductDetail from './page/ProductDetail';
+import Loading from './components/Loading';
+import ErrorBoundary from './shared/ErrorBoundary';
+
+const PruductDetail = lazy(() => import('./page/ProductDetail'));
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <PruductDetail />
+      <ErrorBoundary>
+        <Suspense fallback={<Loading size={40} />}>
+          <PruductDetail />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }

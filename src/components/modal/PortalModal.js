@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import Modal from './Modal';
 import { GrClose } from 'react-icons/gr'
 import { getData } from '../../shared/getData';
+import Modal from './Modal';
+import Loading from '../Loading';
 
 //포탈을 위한 데이터 처리 및 포탈 관련 로직
 const PortalModal = ({uuid, clickEvent}) => {
@@ -16,12 +17,12 @@ const PortalModal = ({uuid, clickEvent}) => {
   return(
     ReactDOM.createPortal(
       <ModalTempComp>
-        {modalData !== null ?
-          <Modal data={modalData}>
-            {<RemoveBtn onClick={clickEvent}><GrClose size={16} /></RemoveBtn>}
-          </Modal>
-          :<></>
-        }
+        <ModalComp>
+        <RemoveBtn onClick={clickEvent}><GrClose size={16} /></RemoveBtn>
+        {modalData ?
+          <Modal data={modalData} />
+        :<Loading size={30} />}
+        </ModalComp>
       </ModalTempComp>, modalRoot
     )
   )
@@ -38,6 +39,20 @@ const ModalTempComp = styled.div`
   align-items: center;
   background-color: ${({theme}) => theme.colors.black_trans};
   z-index: 2;
+`
+const ModalComp = styled.div`
+  position: relative;
+  width: 400px;
+  height: 600px;
+  padding: 0px 20px;
+  background-color: ${({theme}) => theme.colors.white};
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `
 const RemoveBtn = styled.button`
   position: absolute;
