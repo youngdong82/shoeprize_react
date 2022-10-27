@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { GrClose } from 'react-icons/gr'
-import { getData } from '../../shared/getData';
+import { getData } from '../../shared/function/getData';
 import Modal from './Modal';
-import Loading from '../Loading';
+import Loading from '../../shared/Loading';
 
 //포탈을 위한 데이터 처리 및 포탈 관련 로직
 const PortalModal = ({uuid, clickEvent}) => {

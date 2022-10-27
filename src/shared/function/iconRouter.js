@@ -1,10 +1,10 @@
-import website from '../asset/icons/website.svg';
-import facebook from '../asset/icons/facebook.svg';
-import instagram from '../asset/icons/instagram.svg';
-import youtube from '../asset/icons/youtube.svg';
-import naverBlog from '../asset/icons/naverBlog.svg';
-import kakao from '../asset/icons/kakao.svg';
-import twitter from '../asset/icons/twitter.svg';
+import website from '../../asset/icons/website.svg';
+import facebook from '../../asset/icons/facebook.svg';
+import instagram from '../../asset/icons/instagram.svg';
+import youtube from '../../asset/icons/youtube.svg';
+import naverBlog from '../../asset/icons/naverBlog.svg';
+import kakao from '../../asset/icons/kakao.svg';
+import twitter from '../../asset/icons/twitter.svg';
 
 export const iconRouter = (data) => {
   if(data === 'homepage'){

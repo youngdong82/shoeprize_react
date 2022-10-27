@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import Header from './components/header/Header';
-import Loading from './components/Loading';
+import Loading from './shared/Loading';
 import ErrorBoundary from './shared/ErrorBoundary';
 
 const PruductDetail = lazy(() => import('./page/ProductDetail'));

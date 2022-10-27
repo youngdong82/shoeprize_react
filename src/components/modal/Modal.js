@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { iconRouter } from '../../shared/iconRouter';
+import { iconRouter } from '../../shared/function/iconRouter';
 import { stringConverter } from '../../shared/stringConverter';
 import ModalContentTemp from './ModalContetBox';
 import ModalBtn from './ModalBtn';

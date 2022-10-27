@@ -2,7 +2,7 @@ import React from 'react';
 import style from 'styled-components';
 import CopyIcon from '../shared/CopyIcon';
 import MoreContent from '../shared/MoreContent';
-import { withComma } from '../shared/withComma';
+import { withComma } from '../shared/function/withComma';
 
 const DetailHead = ({detailData}) => {
   return(

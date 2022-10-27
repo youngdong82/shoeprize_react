@@ -3,7 +3,7 @@ import style from 'styled-components';
 import ImgContainer from '../components/imgContainer/ImgContainer';
 import DetailContainer from '../components/DetailContainer';
 import DetailHead from '../components/DetailHead';
-import { getData } from '../shared/getData';
+import { getData } from '../shared/function/getData';
 
 const PruductDetail = () => {
   const [data, setData] = useState(null);
